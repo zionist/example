@@ -3,6 +3,7 @@ package ru.jbehave.test;
 import net.schmizz.sshj.SSHClient;
 import net.schmizz.sshj.common.IOUtils;
 import net.schmizz.sshj.connection.channel.direct.Session;
+import net.schmizz.sshj.transport.verification.HostKeyVerifier;
 import org.jbehave.core.annotations.*;
 import org.jbehave.core.steps.Steps;
 import org.springframework.context.ApplicationContext;
@@ -10,6 +11,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import static org.junit.Assert.*;
 
 import java.io.IOException;
+import java.security.PublicKey;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -22,7 +24,15 @@ public class SshSteps extends Steps {
     private Integer status;
 
     public SshSteps() throws IOException {
-        sshCLIent.loadKnownHosts();
+        //sshCLIent.loadKnownHosts();
+        sshCLIent.addHostKeyVerifier(
+                new HostKeyVerifier() {
+                    public boolean verify(String arg0, int arg1, PublicKey arg2) {
+                        return true;
+                    }
+                }
+        );
+
     }
 
 
