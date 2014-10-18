@@ -24,7 +24,6 @@ public class SshSteps extends Steps {
     private Integer status;
 
     public SshSteps() throws IOException {
-        //sshCLIent.loadKnownHosts();
         sshCLIent.addHostKeyVerifier(
                 new HostKeyVerifier() {
                     public boolean verify(String arg0, int arg1, PublicKey arg2) {
