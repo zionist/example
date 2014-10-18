@@ -49,7 +49,7 @@ public class SshSteps extends Steps {
         }
     }
 
-    @Then("I doing the ssh command $command")
+    @Then("I doing the ssh command \"$command\"")
     public void doCommand(String command) throws IOException {
         try {
             final Session session = sshCLIent.startSession();
