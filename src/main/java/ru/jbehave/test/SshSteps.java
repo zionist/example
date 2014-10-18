@@ -23,7 +23,7 @@ public class SshSteps extends Steps {
     private String result;
     private Integer status;
 
-    public SshSteps() throws IOException {
+    public SshSteps() {
         sshCLIent.addHostKeyVerifier(
                 new HostKeyVerifier() {
                     public boolean verify(String arg0, int arg1, PublicKey arg2) {
@@ -33,7 +33,6 @@ public class SshSteps extends Steps {
         );
 
     }
-
 
     @BeforeScenario()
     public void beforeEachScenario() {
