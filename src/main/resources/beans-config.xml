@@ -20,6 +20,12 @@
     <bean id="testHostName" class="java.lang.String">
         <constructor-arg index="0" type="java.lang.String" value="${test.host.name}"/>
     </bean>
+    <bean id="testUser" class="java.lang.String">
+        <constructor-arg index="0" type="java.lang.String" value="${test.user}"/>
+    </bean>
+    <bean id="testPassword" class="java.lang.String">
+        <constructor-arg index="0" type="java.lang.String" value="${test.password}"/>
+    </bean>
     <bean id="testStoriesPath" class="java.lang.String">
         <constructor-arg index="0" type="java.lang.String" value="${test.stories.path}"/>
     </bean>

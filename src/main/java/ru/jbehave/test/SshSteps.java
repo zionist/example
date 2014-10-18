@@ -37,12 +37,14 @@ public class SshSteps extends Steps {
 
     private String testHostName = springContext.getBean("testHostName", String.class);
     private String testStoriesPath = springContext.getBean("testStoriesPath", String.class);
+    private String testUser = springContext.getBean("testUser", String.class);
+    private String testPassword = springContext.getBean("testPassword", String.class);
 
-    @Given("ssh client connected to host as user $user with password $password")
-    public void Connect(String user, String password) {
+    @Given("ssh client connected to test host and authenticated")
+    public void Connect() {
         try {
             sshCLIent.connect(testHostName);
-            sshCLIent.authPassword(user, password);
+            sshCLIent.authPassword(testUser, testPassword);
         } catch (IOException e) {
             fail("Can't connect to host");
             e.printStackTrace();
