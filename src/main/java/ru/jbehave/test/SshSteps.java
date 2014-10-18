@@ -83,7 +83,7 @@ public class SshSteps extends Steps {
         assertTrue(matcher.find());
     }
 
-    @When("the result of ssh command should be \"$result\"")
+    @When("the result line of ssh command should be \"$result\"")
     public void checkResult(String string) {
         assertTrue(result.replace("\n", "").equals(string));
     }
