@@ -59,7 +59,7 @@ public class SshSteps extends Steps {
         }
     }
 
-    @Then("I doing the ssh command \"$command\"")
+    @When("I doing the ssh command \"$command\"")
     public void doCommand(String command) throws IOException {
         try {
             final Session session = sshCLIent.startSession();
@@ -81,19 +81,19 @@ public class SshSteps extends Steps {
         }
     }
 
-    @When("status of ssh command should be $status")
+    @Then("status of ssh command should be $status")
     public void checkStatus(Integer status) {
         assertEquals(status, this.status);
     }
 
-    @When("in the result of ssh command should be found \"$regex\" regex")
+    @Then("in the result of ssh command should be found \"$regex\" regex")
     public void findRegexInResult(String regex) {
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(result);
         assertTrue(matcher.find());
     }
 
-    @When("the result line of ssh command should be \"$result\"")
+    @Then("the result line of ssh command should be \"$result\"")
     public void checkResult(String string) {
         assertTrue(result.replace("\n", "").equals(string));
     }
